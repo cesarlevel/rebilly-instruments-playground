@@ -8,5 +8,8 @@
   },
   "devDependencies": {
     "vite": "^2.4.4"
+  },
+  "dependencies": {
+    "@rebilly/instruments": "^1.0.0-beta"
   }
 }
