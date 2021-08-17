@@ -10,6 +10,6 @@
     "vite": "^2.4.4"
   },
   "dependencies": {
-    "@rebilly/instruments": "^1.0.0-beta"
+    "@rebilly/instruments": "1.0.2-beta.3"
   }
 }
