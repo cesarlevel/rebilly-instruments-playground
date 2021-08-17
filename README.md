@@ -5,7 +5,7 @@ Dog feeding playground for Rebilly Instruments
 - `yarn install`
 - `yarn dev`
 
-### Configuration
+## Configuration
 The application uses [environment variables](https://cli.vuejs.org/guide/mode-and-env.html#modes) on the server component
 
 The environment variables are loaded from the file `.env` (Git-ignored).
