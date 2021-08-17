@@ -6,3 +6,19 @@
   color: #2c3e50;
   margin-top: 60px;
 }
+
+a {
+  border: 1px solid #2c3e50;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 500;
+  color: #2c3e50;
+  padding: 20px 40px;
+  margin: 20px 0;
+  display: inline-block;
+}
+
+a:hover {
+  background: #2c3e50;
+  color: #ffffff;
+}

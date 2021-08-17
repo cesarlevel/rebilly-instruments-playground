@@ -1,15 +1,19 @@
 import './cart.css'
 
-const products = [
+let products = [
   {
     planId: "my-awesome-product",
+    name: "My Awesome Product",
     quantity: 1,
-    thumbnail: "https://picsum.photos/200"
+    thumbnail: "https://picsum.photos/200",
+    price: "$30.00"
   },
   {
     planId: "awesome-t-shirt",
+    name: "Awesome T-Shirt",
     quantity: 1,
-    thumbnail: "https://picsum.photos/200"
+    thumbnail: "https://picsum.photos/200",
+    price: "$20.00"
   }
 ];
 
@@ -17,24 +21,32 @@ localStorage.clear();
 localStorage.setItem('demo-product', JSON.stringify(products));
 
 function renderProducts(items) {
+  const tableBody = document.querySelector('table tbody');
   let result = '';
-  items.forEach(item => {
+
+  tableBody.querySelectorAll('table tbody tr:not(.total)').forEach(el => el.remove());
+  
+  items.forEach((item, i) => {
     result += `
-      <tr>
+      <tr class="items" data-index="${i}">
         <td class="text-left">
-          <a>x</a>
+          <a class="remove">x</a>
           <img src="https://picsum.photos/200"/>
-          <span class="name">${item.planId}</span>
+          <span data-plan-id="${item.planId}" class="name">${item.name}</span>
         </td>
-        <td class="text-right">$24.99</td>
+        <td class="text-right">${item.price}</td>
         <td class="text-center">
-          <input class="text-center" value="${item.quantity}" type="number"/>
+          <input class="text-center" min="1" value="${item.quantity}" type="number"/>
         </td>
-        <td class="text-right">$24.99</td>
+        <td class="text-right">${formatCurrency(item.quantity * Number(item.price.replace('$', '')))}</td>
       </tr>
     `;
   });
   tableBody.insertAdjacentHTML('afterbegin', result)
+}
+
+function formatCurrency(number, currency = 'USD') {
+  return new Intl.NumberFormat('en-US', { style: 'currency', currency }).format(number)
 }
 
 document.querySelector('#app').innerHTML = `
@@ -53,17 +65,64 @@ document.querySelector('#app').innerHTML = `
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr class="total">
         <td></td>
         <td></td>
         <td></td>
-        <td class="text-right">Total $300</td>
+        <td class="text-right">Total $50.00</td>
       </tr>
     </tbody>
   </table>
-  <a href="./cart-checkout.html">Go to Checkout</a>
+  <div class="cta">
+    <a href="./cart-checkout.html">Checkout</a>
+  </div>
+  <footer>
+    <small>Refund policy | Privacy policy | Terms of service<br><a href="../index.html">Go to back to menu</a></small>
+  </footer>
 `;
 
-const tableBody = document.querySelector('table tbody');
 
-renderProducts(products)
+function updateTotal() {
+  const total = document.querySelector('table tbody tr.total td.text-right');
+  const prices = products.map(item => {
+    return item.quantity * Number(item.price.replace('$', ''));
+  })
+  total.innerHTML = `Total ${formatCurrency(prices.reduce((acc, val) => acc + val))}`
+}
+
+renderProducts(products);
+attachListeners();
+
+function attachListeners() {
+  const tableItems = document.querySelectorAll('table tr.items');
+  tableItems.forEach(item => {
+    item.querySelector('a.remove').addEventListener('click', () => {
+      removeItem(item);
+    });
+    item.querySelector('input').addEventListener('change', () => {
+      updateQuantity(item);
+    });
+  });
+}
+
+
+function removeItem(item) {
+  const id = item.querySelector('.name').dataset.planId;
+  products = products.filter(product => {
+    return product.planId !== id;
+  });
+  renderProducts(products);
+  updateTotal();
+  attachListeners();
+  localStorage.setItem('demo-product', JSON.stringify(products));
+}
+
+function updateQuantity(item) {
+  const qty = item.querySelector('input').value;
+  const index = item.dataset.index;
+  products[index].quantity = qty;
+  renderProducts(products);
+  updateTotal();
+  attachListeners();
+  localStorage.setItem('demo-product', JSON.stringify(products));
+}

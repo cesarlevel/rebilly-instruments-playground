@@ -35,8 +35,13 @@ h1 {
     padding: 0 4px;
 }
 
-.breadcrumb small.active {
+.breadcrumb svg {
+    fill: #fb4f16;
+}
+
+.breadcrumb a {
     color: #fb4f16;
+    text-decoration: none;
     font-weight: 500;
 }
 

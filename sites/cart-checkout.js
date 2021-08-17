@@ -6,15 +6,12 @@ document.querySelector('#app').innerHTML = `
     <div class="form-wrapper">
         <h1>My Store</h1>
         <div class="breadcrumb">
-            <small>Cart</small>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" width="10">
-                <path d="M2 1l1-1 4 4 1 1-1 1-4 4-1-1 4-4"></path>
-            </svg>
-            <small class="active">Payment</small>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" width="10">
-                <path d="M2 1l1-1 4 4 1 1-1 1-4 4-1-1 4-4"></path>
-            </svg>
-            <small>Confirm (Non clickable)</small>
+            <a href="./cart.html">
+                <svg style="transform: rotate(180deg)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" width="10">
+                    <path d="M2 1l1-1 4 4 1 1-1 1-4 4-1-1 4-4"></path>
+                </svg>
+                <small>Go back to cart</small>
+            </a>
         </div>
         <div class="rebilly-form"><div>
     </div>
@@ -25,6 +22,13 @@ document.querySelector('#app').innerHTML = `
 `;
 
 const breadcrumbItems = document.querySelector('.breadcrumb').querySelectorAll('small');
+let items = JSON.parse(localStorage.getItem('demo-product')).map(item => {
+    return {
+        planId: item.planId,
+        quantity: Number(item.quantity),
+        thumbnail: item.thumbnail
+    }
+});
 
 RebillyInstruments.initialize({
     publishableKey: import.meta.env.VITE_P_KEY,
@@ -50,18 +54,7 @@ RebillyInstruments.mount({
     summary: ".rebilly-summary",
     options: {
         intent: {
-          items: [
-            {
-                planId: "my-awesome-product",
-                quantity: 1,
-                thumbnail: "https://picsum.photos/200"
-            },
-            {
-                planId: "awesome-t-shirt",
-                quantity: 2,
-                thumbnail: "https://picsum.photos/200"
-            }
-          ],
+          items,
           countryCode: "US"
         },
         paymentInstruments: {

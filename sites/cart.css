@@ -124,3 +124,30 @@ table .name {
 table td * {
     vertical-align: middle;
 }
+
+.cta {
+    width: 60%;
+    margin: 0 auto;
+    text-align: right;
+}
+
+.cta a {
+    background-color: #fb4f16;
+    border: none;
+    font-size: 22px;
+    line-height: 24px;
+    padding: 20px 40px;
+    border-radius: 6px;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+footer {
+    padding-top: 10px;
+    margin-top: 80px;
+    border-top: 1px solid #cfd5d8;
+}
+
