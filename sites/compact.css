@@ -1,0 +1,133 @@
+body, html {
+    background: #f8fbfd;
+    padding: 0;
+    margin: 0;
+}
+
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+}
+
+header {
+    width: 100%;
+    flex: 1 0 100%;
+    min-height: 60px;
+    background: #2c3e50;
+    padding: 22px 0 18px 40px;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+header img {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 40px;
+    border: 2px solid #fff;
+    margin-right: 12px;
+}
+
+header p {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28px;
+    margin: 0;
+}
+
+footer {
+    padding: 40px 0;
+    margin-top: 40px;
+    border-top: 1px solid #cfd5d8;
+}
+
+.rebilly-instruments-overlay {
+    position: fixed!important;
+}
+
+.hero {
+    max-height: 600px;
+    display: flex;
+    background-color: #121920;
+}
+
+.hero > * {
+    flex: 1 0 50%;
+    padding: 40px 80px;
+    box-sizing: border-box;
+    color: #ffffff;
+}
+
+.hero > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+}
+
+.hero > div > * {
+    flex: 0 auto;
+    padding-left: 120px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    display: block;
+    margin: 0;
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.hero > div > p {
+    font-size: 24px;
+    margin-bottom: 0px;
+    font-weight: normal;
+}
+
+.wrapper {
+    max-width: 1200px;
+    box-sizing: border-box;
+    padding: 40px 0;
+    margin: 0 auto;
+}
+
+.wrapper section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px 0;
+}
+
+.wrapper section:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+.wrapper section > * {
+    flex: 1;
+    text-align: left;
+    padding: 0 80px;
+}
+
+.wrapper section > img {
+    border: 2px solid #e8e8fb;
+    background: #ffffff;
+}
+
+.form-wrapper {
+    max-width: 600px;
+    box-sizing: border-box;
+    padding: 40px 0;
+    margin: 0 auto;
+}
+
+.rebilly-form {
+    border: 2px solid #e8e8fb;
+    min-height: auto!important;
+    padding: 40px!important
+}

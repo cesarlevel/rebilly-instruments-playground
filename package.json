@@ -10,6 +10,7 @@
     "vite": "^2.4.4"
   },
   "dependencies": {
-    "@rebilly/instruments": "1.0.2-beta.3"
+    "@rebilly/instruments": "1.0.2-beta.4",
+    "canvas-confetti": "^1.4.0"
   }
 }

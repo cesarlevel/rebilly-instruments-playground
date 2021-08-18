@@ -45,6 +45,15 @@ h1 {
     font-weight: 500;
 }
 
+canvas {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
 footer {
     padding-top: 10px;
     margin-top: 60px;
@@ -75,4 +84,22 @@ section + section {
 .rebilly-summary {
     max-width: 460px;
     margin: 60px 0 0 40px;
+}
+
+@media (max-width: 600px) {
+    #app {
+      flex-direction: column-reverse;
+    }
+
+    .rebilly-summary {
+        margin: 0;
+        margin: 20px;
+    }
+
+    .form-wrapper {
+        max-width: auto;
+        margin: 0;
+        padding: 20px;
+        text-align: left;
+    }
 }

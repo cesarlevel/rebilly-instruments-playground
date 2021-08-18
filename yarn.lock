@@ -906,10 +906,10 @@
     readdirp "^2.2.1"
     upath "^1.1.1"
 
-"@rebilly/instruments@1.0.2-beta.3":
-  version "1.0.2-beta.3"
-  resolved "https://registry.yarnpkg.com/@rebilly/instruments/-/instruments-1.0.2-beta.3.tgz#5d1a3cde77d60d7abc67146cbc6278f9e1e3740b"
-  integrity sha512-wG0tToNLQY58FROTndGHC5RPMlr656iwKz3axuL9ydATnbDGd31vekgayBE/tY43HraY0EMsFIFGvRaxhZfqTw==
+"@rebilly/instruments@1.0.2-beta.4":
+  version "1.0.2-beta.4"
+  resolved "https://registry.yarnpkg.com/@rebilly/instruments/-/instruments-1.0.2-beta.4.tgz#0dd85403e6058101f37d20fa245679f70d50086d"
+  integrity sha512-PiWwbtg5H7VkinFN+N4HI7gWU296mhSvM/rqGoGfGuP8h+F4OOS4Fw/QhYY8uixO+eBwfmArwwXfrEu/I+cDeQ==
   dependencies:
     "@babel/cli" "^7.14.5"
     "@babel/core" "^7.14.6"
@@ -918,7 +918,7 @@
     lodash.merge "^4.6.2"
     rebilly-js-sdk "^42.0.2"
     values.js "^2.0.0"
-    zoid "9.0.71"
+    zoid "9.0.69"
 
 "@rebilly/risk-data-collector@^2.0.1":
   version "2.0.1"
@@ -1138,6 +1138,11 @@ caniuse-lite@^1.0.30001248:
   version "1.0.30001249"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001249.tgz#90a330057f8ff75bfe97a94d047d5e14fabb2ee8"
   integrity sha512-vcX4U8lwVXPdqzPWi6cAJ3FnQaqXbBqy/GZseKNQzRj37J7qZdGcBtxq/QLFNLLlfsoXLUdHw8Iwenri86Tagw==
+
+canvas-confetti@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/canvas-confetti/-/canvas-confetti-1.4.0.tgz#840f6db4a566f8f32abe28c00dcd82acf39c92bd"
+  integrity sha512-S18o4Y9PqI/uabdlT/jI3MY7XBJjNxnfapFIkjkMwpz6qNxLFZOm2b22OMf4ZYDL9lpNWI+Ih4fEMVPwO1KHFQ==
 
 chalk@^2.0.0:
   version "2.4.2"
@@ -2379,10 +2384,10 @@ zalgo-promise@^1, zalgo-promise@^1.0.11, zalgo-promise@^1.0.3, zalgo-promise@^1.
   resolved "https://registry.yarnpkg.com/zalgo-promise/-/zalgo-promise-1.0.47.tgz#cda98035cc97f053a1ab799277102ccb54897013"
   integrity sha512-n6d/Gdv3Fl8l7h062WpWjpNYdDh5OFAg/e3UUqxdjbdUi4qdFcfYLJvaPIMrofmrgU7vEJ8ApLdg+yUeYCA9WQ==
 
-zoid@9.0.71:
-  version "9.0.71"
-  resolved "https://registry.yarnpkg.com/zoid/-/zoid-9.0.71.tgz#64ea5fb0c1cf6722172e88c54d78c35294b0cc01"
-  integrity sha512-wohgtumZ/5v8wSu92Dms6Er3JMhd6xF/9EXPFU0yLNJqQfzQ9GaiL/8OLrtD/+XTYzCcCqUUlrE27PKqbi1O5w==
+zoid@9.0.69:
+  version "9.0.69"
+  resolved "https://registry.yarnpkg.com/zoid/-/zoid-9.0.69.tgz#4065a59c83bb41c4084d54d55b180b0228246839"
+  integrity sha512-8LH3ACE/kRR3i+UeZzvRJi62gy+SaNi5oMbPRvfDrQZlWa2/+zxCoVhqx3Nomycm9cIIvnk71soMvuQvm4wUNA==
   dependencies:
     belter "^1.0.123"
     cross-domain-utils "^2.0.33"
