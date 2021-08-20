@@ -1,6 +1,7 @@
 import './cart-checkout.css'
 import confetti from 'canvas-confetti';
 import RebillyInstruments from '@rebilly/instruments';
+import app from "../app";
 
 document.querySelector('#app').innerHTML = `
     <canvas style="display: none"></canvas>
@@ -23,21 +24,10 @@ document.querySelector('#app').innerHTML = `
     </section>
 `;
 
-let items = JSON.parse(localStorage.getItem('demo-product')).map(item => {
-    return {
-        planId: item.planId,
-        quantity: Number(item.quantity),
-        thumbnail: item.thumbnail
-    }
-});
-
 const myCanvas = document.querySelector('canvas');
 
 RebillyInstruments.initialize({
-    publishableKey: import.meta.env.VITE_P_KEY,
-    organizationId: import.meta.env.VITE_ORG_ID,
-    websiteId: "my-awesome-website",
-    apiMode: "sandbox",
+    ...app.initOptions,
     theme: {
         color: {
             primary: '#fb4f16'
@@ -92,17 +82,18 @@ RebillyInstruments.mount({
     summary: ".rebilly-summary",
     options: {
         intent: {
-          items,
+            items: JSON.parse(localStorage.getItem('demo-product')).map(item => {
+                return {
+                    planId: item.planId,
+                    quantity: Number(item.quantity),
+                    thumbnail: item.thumbnail
+                }
+            }),
           countryCode: "US"
         },
         paymentInstruments: {
             compactExpressInstruments: true,
-            googlePay: {
-                merchantConfig: {
-                    merchantName: "merchant_name", 
-                    merchantOrigin: "merchant_origin"
-                }
-            },
+            googlePay: app.paymentInstruments.googlePay,
             paymentCard : {
                 popup: false
             }
@@ -112,7 +103,7 @@ RebillyInstruments.mount({
 
 RebillyInstruments.on('purchase-complete', (purchase) => {
     myCanvas.style.display = 'block';
-    
+
     var myConfetti = confetti.create(myCanvas, {
         resize: true,
         useWorker: true
