@@ -47,6 +47,9 @@ RebillyInstruments.initialize({
   websiteId: "my-awesome-website",
   apiMode: "sandbox",
   theme: {
+    typography: {
+      fontFamily: "'Palatino Linotype', 'Book Antiqua', Palatino, serif"
+    },
     color: {
       primary: '#2c3e50',
       background: '#f8fbfd',
@@ -106,7 +109,7 @@ RebillyInstruments.on('purchase-complete', (purchase) => {
   } = purchase?.invoice || {};
   const rbForm = document.querySelector('.rebilly-form');
   const content = `
-    <h2>Thanks ${firstName} ${lastName} for joining your education journey with us!</h2>
+    <h2>Thanks ${firstName} ${lastName} for starting your education journey with us!</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac pretium metus. Nam luctus nibh a diam porta egestas. Donec eget leo et est convallis consectetur eu a mauris.</p>
   `;
   rbForm.innerHTML = content;
