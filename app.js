@@ -30,7 +30,7 @@ class App {
             },
             {
                 planId: this.plans.plan2.id,
-                quantity: 2,
+                quantity: 1,
             }
         ],
     }
