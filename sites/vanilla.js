@@ -4,8 +4,8 @@ import app from '../app';
 
 document.querySelector('#app').innerHTML = `
   <div class="form-wrapper">
-    <section class="rebilly-summary"></section>
-    <section class="rebilly-form"></section>
+    <section class="rebilly-instruments-summary"></section>
+    <section class="rebilly-instruments"></section>
     <footer>
       <small>Refund policy | Privacy policy | Terms of service<br><a href="../index.html">Go to back to menu</a></small>
     </footer>
@@ -15,8 +15,6 @@ document.querySelector('#app').innerHTML = `
 RebillyInstruments.initialize(app.initOptions);
 
 RebillyInstruments.mount({
-  form: ".rebilly-form",
-  summary: ".rebilly-summary",
   options: {
     intent: {
       items: app.carts.cart2,
