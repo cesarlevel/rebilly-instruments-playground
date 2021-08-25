@@ -84,7 +84,7 @@ RebillyInstruments.mount({
         intent: {
             items: JSON.parse(localStorage.getItem('demo-product')).map(item => {
                 return {
-                    planId: item.planId,
+                    planId: item.id,
                     quantity: Number(item.quantity),
                     thumbnail: item.thumbnail
                 }

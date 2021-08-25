@@ -1,7 +1,7 @@
 import './cart.css'
 import app from '../app';
 
-let products = app.carts.cart3;
+let products = Object.values(app.plans);
 
 localStorage.clear();
 localStorage.setItem('demo-product', JSON.stringify(products));
