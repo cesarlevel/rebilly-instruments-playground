@@ -1,5 +1,6 @@
 import './compact.css';
 import pcImage from './pc-image.png'
+import app from '../app';
 import RebillyInstruments from '@rebilly/instruments';
 
 
@@ -42,10 +43,7 @@ document.querySelector('#app').innerHTML = `
 `;
 
 RebillyInstruments.initialize({
-  publishableKey: import.meta.env.VITE_P_KEY,
-  organizationId: import.meta.env.VITE_ORG_ID,
-  websiteId: "my-awesome-website",
-  apiMode: "sandbox",
+    ...app.initOptions,
   theme: {
     typography: {
       fontFamily: "'Palatino Linotype', 'Book Antiqua', Palatino, serif"
@@ -75,21 +73,11 @@ RebillyInstruments.mount({
   form: ".rebilly-form",
   options: {
       intent: {
-        items: [
-          {
-            planId: "my-awesome-product",
-            quantity: 1,
-          }
-        ],
+        items: app.carts.cart1,
       },
       paymentInstruments: {
           compactExpressInstruments: false,
-          googlePay: {
-              merchantConfig: {
-                  merchantName: "merchant_name", 
-                  merchantOrigin: "merchant_origin"
-              }
-          },
+          googlePay: app.paymentInstruments.googlePay,
           paymentCard: {
             popup: true
           }

@@ -1,5 +1,6 @@
 import './vanilla.css';
 import RebillyInstruments from '@rebilly/instruments';
+import app from '../app';
 
 document.querySelector('#app').innerHTML = `
   <div class="form-wrapper">
@@ -11,34 +12,15 @@ document.querySelector('#app').innerHTML = `
   </div>
 `;
 
-RebillyInstruments.initialize({
-  publishableKey: import.meta.env.VITE_P_KEY,
-  organizationId: import.meta.env.VITE_ORG_ID,
-  websiteId: "my-awesome-website",
-  apiMode: "sandbox",
-});
+RebillyInstruments.initialize(app.initOptions);
 
 RebillyInstruments.mount({
   options: {
     intent: {
-      items: [
-        {
-          planId: "my-awesome-product",
-          quantity: 1,
-        },
-        {
-          planId: "awesome-t-shirt",
-          quantity: 2,
-        }
-      ],
+      items: app.carts.cart2,
     },
     paymentInstruments: {
-      googlePay: {
-        merchantConfig: {
-          merchantName: "merchant_name", 
-          merchantOrigin: "merchant_origin"
-        }
-      },
+      googlePay: app.paymentInstruments.googlePay,
     }
   },
 });

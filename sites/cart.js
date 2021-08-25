@@ -1,21 +1,7 @@
 import './cart.css'
+import app from '../app';
 
-let products = [
-  {
-    planId: "my-awesome-product",
-    name: "My Awesome Product",
-    quantity: 1,
-    thumbnail: "https://picsum.photos/200",
-    price: "$30.00"
-  },
-  {
-    planId: "awesome-t-shirt",
-    name: "Awesome T-Shirt",
-    quantity: 1,
-    thumbnail: "https://picsum.photos/200",
-    price: "$20.00"
-  }
-];
+let products = Object.values(app.plans);
 
 localStorage.clear();
 localStorage.setItem('demo-product', JSON.stringify(products));
@@ -25,7 +11,7 @@ function renderProducts(items) {
   let result = '';
 
   tableBody.querySelectorAll('table tbody tr:not(.total)').forEach(el => el.remove());
-  
+
   items.forEach((item, i) => {
     result += `
       <tr class="items" data-index="${i}">

@@ -1,5 +1,6 @@
 import './vanilla-dark.css';
 import RebillyInstruments from '@rebilly/instruments';
+import app from "../app";
 
 document.querySelector('#app').innerHTML = `
   <div class="form-wrapper">
@@ -12,10 +13,7 @@ document.querySelector('#app').innerHTML = `
 `;
 
 RebillyInstruments.initialize({
-  publishableKey: import.meta.env.VITE_P_KEY,
-  organizationId: import.meta.env.VITE_ORG_ID,
-  websiteId: "my-awesome-website",
-  apiMode: "sandbox",
+  ...app.initOptions,
   theme: {
     color: {
       background: '#212f3d',
@@ -51,28 +49,14 @@ RebillyInstruments.initialize({
 RebillyInstruments.mount({
   options: {
     intent: {
-      items: [
-        {
-          planId: "my-awesome-product",
-          quantity: 1,
-          thumbnail: "https://picsum.photos/200"
-        },
-        {
-          planId: "awesome-t-shirt",
-          quantity: 2,
-          thumbnail: "https://picsum.photos/200"
-        }
-      ],
+      items: app.carts.cart2,
     },
     paymentInstruments: {
       googlePay: {
+        ...app.paymentInstruments.googlePay,
         displayOptions: {
           buttonColor: "white",
         },
-        merchantConfig: {
-            merchantName: "merchant_name", 
-            merchantOrigin: "merchant_origin"
-        }
       },
     }
   },
