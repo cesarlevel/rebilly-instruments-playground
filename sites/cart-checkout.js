@@ -34,45 +34,9 @@ RebillyInstruments.initialize({
         }
     },
     css: `
-        .rebilly-instruments-summary-container,
-        .rebilly-summary .rebilly-instruments-loader.active {
+        .rebilly-summary .rebilly-instruments-content,
+        .rebilly-summary .rebilly-instruments-loader.is-active {
             background: #fafafa;
-        }
-
-        .rebilly-instruments-input-field input,
-        .rebilly-instruments-select-field select {
-            font-size: 14px;
-            line-height: 14px;
-            min-height: 46px;
-            padding-left: 12px;
-        }
-
-        .rebilly-instruments-input-field input:not(:placeholder-shown):focus,
-        .rebilly-instruments-input-field input:not(:placeholder-shown):focus-visible,
-        .rebilly-instruments-input-field input:not(:placeholder-shown):focus-within,
-        .rebilly-instruments-select-field select:not(:placeholder-shown):focus,
-        .rebilly-instruments-select-field select:not(:placeholder-shown):focus-visible,
-        .rebilly-instruments-select-field select:not(:placeholder-shown):focus-within,
-        .rebilly-instruments-input-field input:not(:placeholder-shown),
-        .rebilly-instruments-select-field select {
-            padding: 20px 16px 4px 12px;
-        }
-
-        .rebilly-instruments-input-field label {
-            left: calc(12px - 4px);
-        }
-
-        .rebilly-instruments-select-field label {
-            font-size: 14px;
-            line-height: 14px;
-        }
-
-        .rebilly-instruments-input-field input:not(:placeholder-shown) + label,
-        .rebilly-instruments-select-field select:focus + label,
-        .rebilly-instruments-select-field label.active {
-            color: #566b78;
-            top: 14px;
-            left: calc(12px - 4px);
         }
     `
 });
@@ -93,7 +57,6 @@ RebillyInstruments.mount({
         },
         paymentInstruments: {
             compactExpressInstruments: true,
-            googlePay: app.paymentInstruments.googlePay,
             paymentCard : {
                 popup: false
             }
@@ -101,7 +64,7 @@ RebillyInstruments.mount({
     },
 });
 
-RebillyInstruments.on('purchase-complete', (purchase) => {
+RebillyInstruments.on('purchase-completed', (purchase) => {
     myCanvas.style.display = 'block';
 
     var myConfetti = confetti.create(myCanvas, {

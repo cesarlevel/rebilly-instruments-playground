@@ -18,9 +18,6 @@ RebillyInstruments.mount({
   options: {
     intent: {
       items: app.carts.cart2,
-    },
-    paymentInstruments: {
-      googlePay: app.paymentInstruments.googlePay,
     }
   },
 });

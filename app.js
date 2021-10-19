@@ -35,15 +35,6 @@ class App {
         ],
     }
 
-    paymentInstruments = {
-        googlePay: {
-            merchantConfig: {
-                merchantName: 'merchant_name',
-                merchantOrigin: 'merchant_origin'
-            },
-        },
-    }
-
     initOptions = {
         organizationId: import.meta.env.VITE_ORGANIZATION_ID,
         publishableKey: import.meta.env.VITE_API_KEY,

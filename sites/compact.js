@@ -52,21 +52,7 @@ RebillyInstruments.initialize({
       primary: '#2c3e50',
       background: '#f8fbfd',
     }
-  },
-  css: `
-    .rebilly-instruments-divider {
-      padding: 12px 0;
-    }
-
-    .rebilly-instruments-form-express > * {
-      margin: 4px 0;
-      min-height: 44px;
-      background: linear-gradient(110deg , #e7eaec 0%, #ffffff 25%, #e7eaec 50%);
-      border-radius: 6px;
-      background-size: 200% 100%;
-      animation: 1.5s rebillyExpressShine linear infinite;
-    }
-  `
+  }
 });
 
 RebillyInstruments.mount({
@@ -77,7 +63,6 @@ RebillyInstruments.mount({
       },
       paymentInstruments: {
           compactExpressInstruments: false,
-          googlePay: app.paymentInstruments.googlePay,
           paymentCard: {
             popup: true
           }
@@ -88,7 +73,7 @@ RebillyInstruments.mount({
   },
 });
 
-RebillyInstruments.on('purchase-complete', (purchase) => {
+RebillyInstruments.on('purchase-completed', (purchase) => {
   const {
     billingAddress: {
       firstName = '',

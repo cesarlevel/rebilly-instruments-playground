@@ -2,7 +2,7 @@ const { resolve } = require('path')
 
 module.exports = {
   define: {
-    process: () => {},
+    'process.env': process.env,
   },
   build: {
     rollupOptions: {
